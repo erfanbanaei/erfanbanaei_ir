@@ -1,0 +1,7 @@
+include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    unused_field: ignore
+    unused_element: ignore
+    file_names: ignore
+    avoid_web_libraries_in_flutter: ignore
