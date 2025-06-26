@@ -795,7 +795,7 @@ class _desktopState extends State<desktop> {
                             //Exp
                             //
                             SizedBox(
-                              height: 154.4,
+                              height: 475,
                               child: CustomBox(
                                 borderRadius: containerStyle.borderRadius,
                                 margin: containerStyle.margin,
@@ -952,13 +952,6 @@ class _desktopState extends State<desktop> {
                                                                             textStyles.edu_P_L),
                                                               ),
                                                               Text(
-                                                                ' • ',
-                                                                style: GoogleFonts
-                                                                    .chakraPetch(
-                                                                        textStyle:
-                                                                            textStyles.edu_P_L),
-                                                              ),
-                                                              Text(
                                                                 Experiences[
                                                                         index]
                                                                     .duration,
@@ -1013,7 +1006,7 @@ class _desktopState extends State<desktop> {
                             //Edu
                             //
                             SizedBox(
-                              height: 523.2,
+                              height: 200,
                               child: CustomBox(
                                 borderRadius: containerStyle.borderRadius,
                                 margin: containerStyle.margin,
