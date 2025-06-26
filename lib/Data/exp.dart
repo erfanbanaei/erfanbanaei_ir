@@ -23,13 +23,33 @@ class Experience {
 
 List<Experience> Experiences = [
   Experience(
+    role: 'Python Developer',
+    companyName: 'Freelancer',
+    startTime: 'Feb 2015',
+    endTime: 'Oct 2022',
+    workType: '',
+    duration: '',
+    start: true,
+    end: false,
+  ),
+  Experience(
+    role: 'Flutter Developer',
+    companyName: 'Freelancer',
+    startTime: 'Oct 2022',
+    endTime: 'Oct 2024',
+    workType: '',
+    duration: '',
+    start: false,
+    end: false,
+  ),
+  Experience(
     role: 'Flutter Developer',
     companyName: 'Holding parse',
     startTime: 'Oct 2024',
     endTime: 'Now',
     workType: '',
     duration: '',
-    start: true,
-    end: false,
+    start: false,
+    end: true,
   ),
 ];
