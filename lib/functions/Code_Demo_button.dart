@@ -1,5 +1,5 @@
-import 'package:nakul_dev/functions/launch_url.dart';
-import 'package:nakul_dev/functions/notifySnackBar.dart';
+import '../../functions/launch_url.dart';
+import '../../functions/notifySnackBar.dart';
 import 'package:flutter/material.dart';
 
 void codeButton(BuildContext context, index) {
