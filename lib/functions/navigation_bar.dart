@@ -1,12 +1,12 @@
-import 'package:nakul_dev/functions/navigate.dart';
-import 'package:nakul_dev/nakuldev_portfolio/ToResponsivePage/toResponsiveLayout_Main.dart';
-import 'package:nakul_dev/nakuldev_portfolio/ToResponsivePage/toResponsive_AboutMe.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import '../../functions/navigate.dart';
+import '../../erfanbanaei_portfolio/ToResponsivePage/toResponsiveLayout_Main.dart';
+import '../../erfanbanaei_portfolio/ToResponsivePage/toResponsive_AboutMe.dart';
+import '../../styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:nakul_dev/nakuldev_portfolio/ToResponsivePage/toResponsive_Projects.dart';
-import 'package:nakul_dev/nakuldev_portfolio/ToResponsivePage/toResponsive_contactMe.dart';
+import '../../erfanbanaei_portfolio/ToResponsivePage/toResponsive_Projects.dart';
+import '../../erfanbanaei_portfolio/ToResponsivePage/toResponsive_contactMe.dart';
 
 class NavigationWrapper extends StatefulWidget {
   final Widget child;
