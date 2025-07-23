@@ -23,10 +23,10 @@ class Experience {
 
 List<Experience> Experiences = [
   Experience(
-    role: 'Python Developer',
-    companyName: 'Freelancer',
-    startTime: 'Feb 2015',
-    endTime: 'Oct 2022',
+    role: 'Flutter Developer',
+    companyName: 'Prase Holding',
+    startTime: 'Oct 2024',
+    endTime: 'Now',
     workType: '',
     duration: '',
     start: true,
@@ -43,10 +43,10 @@ List<Experience> Experiences = [
     end: false,
   ),
   Experience(
-    role: 'Flutter Developer',
-    companyName: 'Holding parse',
-    startTime: 'Oct 2024',
-    endTime: 'Now',
+    role: 'Python Developer',
+    companyName: 'Freelancer',
+    startTime: 'Feb 2018',
+    endTime: 'Oct 2022',
     workType: '',
     duration: '',
     start: false,
