@@ -1,8 +1,8 @@
 // Custom function for URL handling
-import 'package:nakul_dev/functions/Mouse_Tracker.dart';
-import 'package:nakul_dev/functions/animated_blob.dart';
-import 'package:nakul_dev/functions/launch_url.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import '../../functions/Mouse_Tracker.dart';
+import '../../functions/animated_blob.dart';
+import '../../functions/launch_url.dart';
+import '../../styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
