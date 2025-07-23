@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
-// import 'package:nakul_dev/functions/hover%20effect.dart';
-// import 'package:nakul_dev/functions/launch_url.dart';
-// import 'package:nakul_dev/styles/styles.dart';
+// import '../../functions/hover%20effect.dart';
+// import '../../functions/launch_url.dart';
+// import '../../styles/styles.dart';
 
 // class AnimatedDialog extends StatefulWidget {
 //   const AnimatedDialog({super.key});
@@ -179,8 +179,8 @@
 //for upcoming update
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nakul_dev/functions/hover%20effect.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import '../../functions/hover%20effect.dart';
+import '../../styles/styles.dart';
 
 class AnimatedDialog extends StatefulWidget {
   const AnimatedDialog({super.key});
