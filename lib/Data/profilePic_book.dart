@@ -1,2 +1,2 @@
-const String profilepic = 'assets/pfp2.png';
+const String profilepic = 'assets/i.png';
 const String bookPic = 'assets/book.png';
