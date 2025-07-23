@@ -4,7 +4,7 @@
 import 'dart:html';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
-import 'package:nakul_dev/functions/notifySnackBar.dart';
+import '../../functions/notifySnackBar.dart';
 
 // Function to convert normal GitHub link to raw link
 String convertToRawLink(String url) {
