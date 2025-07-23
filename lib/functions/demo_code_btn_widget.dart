@@ -1,7 +1,7 @@
-import 'package:nakul_dev/Data/projects.dart';
-import 'package:nakul_dev/functions/Code_Demo_button.dart';
-import 'package:nakul_dev/functions/hover%20effect.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import '../../Data/projects.dart';
+import '../../functions/Code_Demo_button.dart';
+import '../../functions/hover%20effect.dart';
+import '../../styles/styles.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
