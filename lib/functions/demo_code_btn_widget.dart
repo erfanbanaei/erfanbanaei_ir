@@ -88,75 +88,75 @@ class demo_code_button extends StatelessWidget {
               ),
             ),
           ),
-          // //demo btn
-          // MouseRegion(
-          //   cursor: SystemMouseCursors.click,
-          //   child: GestureDetector(
-          //     onTap: () {
-          //       demoButton(context, projects[index]);
-          //     },
-          //     child: HoverEffect(
-          //       childA: Container(
-          //         padding: const EdgeInsets.all(5),
-          //         margin: const EdgeInsets.only(right: 10),
-          //         height: 30,
-          //         width: 90,
-          //         decoration: BoxDecoration(
-          //             borderRadius: const BorderRadius.all(rad),
-          //             color: EducationcontainerStyle.color),
-          //         child: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //           children: [
-          //             AutoSizeText(
-          //               "Run",
-          //               style:
-          //                   GoogleFonts.chakraPetch(textStyle: textStyles.P1),
-          //               minFontSize: 5,
-          //               maxFontSize: 15,
-          //               maxLines: 1,
-          //             ),
-          //             Icon(
-          //               color: textStyles.B.color,
-          //               Icons.play_arrow_rounded,
-          //               // Icons.flash_on_rounded,
+          //demo btn
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {
+                demoButton(context, projects[index]);
+              },
+              child: HoverEffect(
+                childA: Container(
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(right: 10),
+                  height: 30,
+                  width: 90,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(rad),
+                      color: EducationcontainerStyle.color),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AutoSizeText(
+                        "Run",
+                        style:
+                            GoogleFonts.chakraPetch(textStyle: textStyles.P1),
+                        minFontSize: 5,
+                        maxFontSize: 15,
+                        maxLines: 1,
+                      ),
+                      Icon(
+                        color: textStyles.B.color,
+                        Icons.play_arrow_rounded,
+                        // Icons.flash_on_rounded,
 
-          //               size: 16,
-          //             )
-          //           ],
-          //         ),
-          //       ),
-          //       childB: Container(
-          //         padding: const EdgeInsets.all(5),
-          //         margin: const EdgeInsets.only(right: 10),
-          //         height: 30,
-          //         width: 90,
-          //         decoration: const BoxDecoration(
-          //             borderRadius: BorderRadius.all(rad),
-          //             color: Colors.white70),
-          //         child: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //           children: [
-          //             AutoSizeText(
-          //               "Run",
-          //               style: GoogleFonts.chakraPetch(
-          //                   textStyle: textStyles.P1, color: Colors.black87),
-          //               minFontSize: 5,
-          //               maxFontSize: 15,
-          //               maxLines: 1,
-          //             ),
-          //             const Icon(
-          //               color: Colors.black87,
-          //               Icons.play_arrow_rounded,
-          //               // Icons.flash_on_rounded,
+                        size: 16,
+                      )
+                    ],
+                  ),
+                ),
+                childB: Container(
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(right: 10),
+                  height: 30,
+                  width: 90,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(rad),
+                      color: Colors.white70),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AutoSizeText(
+                        "Run",
+                        style: GoogleFonts.chakraPetch(
+                            textStyle: textStyles.P1, color: Colors.black87),
+                        minFontSize: 5,
+                        maxFontSize: 15,
+                        maxLines: 1,
+                      ),
+                      const Icon(
+                        color: Colors.black87,
+                        Icons.play_arrow_rounded,
+                        // Icons.flash_on_rounded,
 
-          //               size: 16,
-          //             )
-          //           ],
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
+                        size: 16,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
