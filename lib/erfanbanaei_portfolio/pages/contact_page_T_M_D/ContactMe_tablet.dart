@@ -4,12 +4,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nakul_dev/functions/Custom_backdrop_filter.dart';
-import 'package:nakul_dev/functions/GoogleMap_Integration.dart';
-import 'package:nakul_dev/functions/copy_text.dart';
-import 'package:nakul_dev/functions/launch_url.dart';
-import 'package:nakul_dev/functions/mailing_fun.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import 'package:erfanbanaei/functions/Custom_backdrop_filter.dart';
+import 'package:erfanbanaei/functions/GoogleMap_Integration.dart';
+import 'package:erfanbanaei/functions/copy_text.dart';
+import 'package:erfanbanaei/functions/launch_url.dart';
+import 'package:erfanbanaei/functions/mailing_fun.dart';
+import 'package:erfanbanaei/styles/styles.dart';
 
 class ContactMe_tablet extends StatefulWidget {
   const ContactMe_tablet({super.key});

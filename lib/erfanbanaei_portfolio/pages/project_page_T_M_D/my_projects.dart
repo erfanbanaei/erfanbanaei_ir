@@ -2,10 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nakul_dev/Data/projects.dart';
-import 'package:nakul_dev/functions/Custom_backdrop_filter.dart';
-import 'package:nakul_dev/functions/demo_code_btn_widget.dart';
-import 'package:nakul_dev/styles/styles.dart';
+import 'package:erfanbanaei/Data/projects.dart';
+import 'package:erfanbanaei/functions/Custom_backdrop_filter.dart';
+import 'package:erfanbanaei/functions/demo_code_btn_widget.dart';
+import 'package:erfanbanaei/styles/styles.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class myProject extends StatefulWidget {

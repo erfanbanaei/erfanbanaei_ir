@@ -1,4 +1,4 @@
-import 'package:nakul_dev/functions/launch_url.dart';
+import 'package:erfanbanaei/functions/launch_url.dart';
 
 import '../../Data/education.dart';
 import '../../Data/exp.dart';

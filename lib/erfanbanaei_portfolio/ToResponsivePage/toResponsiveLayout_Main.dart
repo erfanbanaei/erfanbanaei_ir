@@ -1,10 +1,10 @@
-import 'package:nakul_dev/functions/Mouse_Tracker.dart';
-import 'package:nakul_dev/functions/navigation_bar.dart';
-import 'package:nakul_dev/erfanbanaei_portfolio/desktop.dart';
-import 'package:nakul_dev/erfanbanaei_portfolio/mobile.dart';
-import 'package:nakul_dev/functions/responsive_layout.dart';
-import 'package:nakul_dev/erfanbanaei_portfolio/tablet.dart';
-import 'package:nakul_dev/functions/animated_blob.dart';
+import 'package:erfanbanaei/functions/Mouse_Tracker.dart';
+import 'package:erfanbanaei/functions/navigation_bar.dart';
+import 'package:erfanbanaei/erfanbanaei_portfolio/desktop.dart';
+import 'package:erfanbanaei/erfanbanaei_portfolio/mobile.dart';
+import 'package:erfanbanaei/functions/responsive_layout.dart';
+import 'package:erfanbanaei/erfanbanaei_portfolio/tablet.dart';
+import 'package:erfanbanaei/functions/animated_blob.dart';
 import 'package:flutter/material.dart';
 
 class toResponsiveLayout extends StatefulWidget {
