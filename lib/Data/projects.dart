@@ -76,7 +76,7 @@ List<Project> projects = [
     screenshot2: "",
   ),
   Project(
-    image: "assets/ss/learning.png",
+    image: "assets/ss/learning.jpg",
     description:
         "A modern and minimal educational app built with Flutter, designed to showcase UI design principles and clean architecture. "
         "It demonstrates professional layout composition, responsive design, and smooth navigation using GetX.",
