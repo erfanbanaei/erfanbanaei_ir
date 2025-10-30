@@ -75,4 +75,22 @@ List<Project> projects = [
     screenshot1: "",
     screenshot2: "",
   ),
+  Project(
+    image: "assets/ss/learning.png",
+    description:
+        "A modern and minimal educational app built with Flutter, designed to showcase UI design principles and clean architecture. "
+        "It demonstrates professional layout composition, responsive design, and smooth navigation using GetX.",
+    keyFeatures: "• Beautiful and responsive UI\n"
+        "• Category display using GridView\n"
+        "• Smooth page transitions with GetX\n"
+        "• Well-structured and clean codebase",
+    title: "LearningApp",
+    icon: Icons.school,
+    flutterSvg: "assets/svg/flutter.svg",
+    dartSvg: "assets/svg/dart.svg",
+    githubLink: "https://github.com/erfanbanaei/Flutter_Learning_Ui",
+    demoVideoLink: "https://learning.erfanbanaei.ir/",
+    screenshot1: "",
+    screenshot2: "",
+  ),
 ];
