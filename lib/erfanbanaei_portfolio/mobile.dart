@@ -1102,7 +1102,7 @@ class _mobileState extends State<mobile> {
             //blog
             GestureDetector(
               onTap: () {
-                urlLaunch('https://erfanbanaei.ir/blog');
+                urlLaunch('https://blog.erfanbanaei.ir');
               },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 16),

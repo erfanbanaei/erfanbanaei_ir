@@ -799,7 +799,7 @@ class _desktopState extends State<desktop> {
                               height: 110,
                               child: GestureDetector(
                                 onTap: () {
-                                  urlLaunch('https://erfanbanaei.ir/blog');
+                                  urlLaunch('https://blog.erfanbanaei.ir');
                                 },
                                 child: MouseRegion(
                                   cursor: SystemMouseCursors.click,

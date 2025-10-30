@@ -1287,7 +1287,7 @@ class _tabletState extends State<tablet> {
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
                       onTap: () {
-                        urlLaunch('https://erfanbanaei.ir/blog');
+                        urlLaunch('https://blog.erfanbanaei.ir');
                       },
                       child: CustomBox(
                         isHover: true,
