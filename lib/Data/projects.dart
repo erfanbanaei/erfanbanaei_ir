@@ -93,4 +93,23 @@ List<Project> projects = [
     screenshot1: "",
     screenshot2: "",
   ),
+  Project(
+    image: "assets/ss/medical.jpg",
+    description:
+        "A modern and minimal medical application built with Flutter, showcasing clean architecture and professional UI design. "
+        "The app provides a smooth user experience with organized medical categories, doctor profiles, and intuitive navigation powered by GetX.",
+    keyFeatures: "• Beautiful, clean, and medical-focused UI\n"
+        "• Doctor and department listing with GridView\n"
+        "• Smooth and fast navigation using GetX\n"
+        "• Well-structured, scalable, and maintainable codebase\n"
+        "• Responsive design for all screen sizes",
+    title: "MedicalApp",
+    icon: Icons.medical_services,
+    flutterSvg: "assets/svg/flutter.svg",
+    dartSvg: "assets/svg/dart.svg",
+    githubLink: "https://github.com/erfanbanaei/Flutter_Medical_App",
+    demoVideoLink: "https://medical.erfanbanaei.ir/",
+    screenshot1: "",
+    screenshot2: "",
+  ),
 ];
