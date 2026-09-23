@@ -22,7 +22,8 @@ featured: true
 order: 1
 date: ""
 cover: ""
-gallery: []
+gallery:
+  - /images/projects/heshiyar-mali-9865d78b.webp
 links:
   github: ""
   demo: ""
