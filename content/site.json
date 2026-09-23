@@ -54,17 +54,66 @@
   },
   "email": "mr.erfanbanaei@gmail.com",
   "socials": [
-    { "id": "linkedin", "label": { "fa": "لینکدین", "en": "LinkedIn" }, "url": "https://www.linkedin.com/in/erfanbanaeii/" },
-    { "id": "github", "label": { "fa": "گیت‌هاب", "en": "GitHub" }, "url": "https://github.com/erfanbanaei" },
-    { "id": "x", "label": { "fa": "ایکس (توییتر)", "en": "X (Twitter)" }, "url": "https://twitter.com/erfan_banaei" },
-    { "id": "youtube", "label": { "fa": "یوتیوب", "en": "YouTube" }, "url": "https://youtube.com/@erfanbanaei" },
-    { "id": "instagram", "label": { "fa": "اینستاگرام", "en": "Instagram" }, "url": "https://www.instagram.com/erfanbanaei.ir" },
-    { "id": "telegram", "label": { "fa": "تلگرام", "en": "Telegram" }, "url": "https://t.me/erfanbanaei_ir" },
-    { "id": "aparat", "label": { "fa": "آپارات", "en": "Aparat" }, "url": "https://www.aparat.com/erfanbanaei" }
+    {
+      "id": "linkedin",
+      "label": {
+        "fa": "لینکدین",
+        "en": "LinkedIn"
+      },
+      "url": "https://www.linkedin.com/in/erfanbanaeii/"
+    },
+    {
+      "id": "github",
+      "label": {
+        "fa": "گیت‌هاب",
+        "en": "GitHub"
+      },
+      "url": "https://github.com/erfanbanaei"
+    },
+    {
+      "id": "x",
+      "label": {
+        "fa": "ایکس (توییتر)",
+        "en": "X (Twitter)"
+      },
+      "url": "https://twitter.com/erfan_banaei"
+    },
+    {
+      "id": "youtube",
+      "label": {
+        "fa": "یوتیوب",
+        "en": "YouTube"
+      },
+      "url": "https://youtube.com/@erfanbanaei"
+    },
+    {
+      "id": "instagram",
+      "label": {
+        "fa": "اینستاگرام",
+        "en": "Instagram"
+      },
+      "url": "https://www.instagram.com/erfanbanaei.ir"
+    },
+    {
+      "id": "telegram",
+      "label": {
+        "fa": "تلگرام",
+        "en": "Telegram"
+      },
+      "url": "https://t.me/erfanbanaei_ir"
+    },
+    {
+      "id": "aparat",
+      "label": {
+        "fa": "آپارات",
+        "en": "Aparat"
+      },
+      "url": "https://www.aparat.com/erfanbanaei"
+    }
   ],
   "resume": {
     "fa": "",
-    "en": ""
+    "en": "/files/resume-en.pdf"
   },
   "integrations": {
     "web3formsKey": "",
