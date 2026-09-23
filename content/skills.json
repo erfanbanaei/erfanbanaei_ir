@@ -1,0 +1,18 @@
+[
+  { "id": "flutter", "name": { "fa": "Flutter", "en": "Flutter" }, "level": 85, "category": "mobile" },
+  { "id": "dart", "name": { "fa": "Dart", "en": "Dart" }, "level": 80, "category": "languages" },
+  { "id": "kotlin", "name": { "fa": "Kotlin", "en": "Kotlin" }, "level": 80, "category": "languages" },
+  { "id": "swift", "name": { "fa": "Swift", "en": "Swift" }, "level": 70, "category": "languages" },
+  { "id": "python", "name": { "fa": "Python", "en": "Python" }, "level": 70, "category": "languages" },
+  { "id": "bash", "name": { "fa": "Bash", "en": "Bash" }, "level": 60, "category": "languages" },
+  { "id": "rest-api", "name": { "fa": "REST API", "en": "REST API" }, "level": 90, "category": "backend" },
+  { "id": "sqlite", "name": { "fa": "SQLite", "en": "SQLite" }, "level": 90, "category": "backend" },
+  { "id": "firebase", "name": { "fa": "Firebase", "en": "Firebase" }, "level": 80, "category": "backend" },
+  { "id": "html-css", "name": { "fa": "HTML/CSS", "en": "HTML/CSS" }, "level": 80, "category": "web" },
+  { "id": "wordpress", "name": { "fa": "وردپرس", "en": "WordPress" }, "level": 80, "category": "web" },
+  { "id": "github", "name": { "fa": "GitHub", "en": "GitHub" }, "level": 90, "category": "tools" },
+  { "id": "git", "name": { "fa": "Git", "en": "Git" }, "level": 80, "category": "tools" },
+  { "id": "linux", "name": { "fa": "لینوکس (LPIC-1)", "en": "Linux (LPIC-1)" }, "level": 70, "category": "tools" },
+  { "id": "figma", "name": { "fa": "Figma", "en": "Figma" }, "level": 80, "category": "design" },
+  { "id": "ui-ux", "name": { "fa": "UI/UX", "en": "UI/UX" }, "level": 60, "category": "design" }
+]

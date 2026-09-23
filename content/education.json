@@ -1,0 +1,10 @@
+[
+  {
+    "id": "high-school",
+    "title": { "fa": "دیپلم دبیرستان", "en": "High School Diploma" },
+    "institution": { "fa": "", "en": "" },
+    "start": "",
+    "end": "",
+    "note": { "fa": "فارغ‌التحصیل", "en": "Graduated" }
+  }
+]

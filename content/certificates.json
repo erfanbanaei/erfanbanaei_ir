@@ -1,0 +1,42 @@
+[
+  {
+    "id": "kotlin",
+    "title": { "fa": "دوره Kotlin", "en": "Kotlin Course" },
+    "description": { "fa": "توسعهٔ اندروید", "en": "Android Development" },
+    "issuer": { "fa": "", "en": "" },
+    "date": "",
+    "image": "",
+    "credentialId": "",
+    "credentialUrl": ""
+  },
+  {
+    "id": "jetpack-compose",
+    "title": { "fa": "Jetpack Compose", "en": "Jetpack Compose" },
+    "description": { "fa": "رابط کاربری مدرن اندروید", "en": "Modern Android UI" },
+    "issuer": { "fa": "", "en": "" },
+    "date": "",
+    "image": "",
+    "credentialId": "",
+    "credentialUrl": ""
+  },
+  {
+    "id": "network-plus",
+    "title": { "fa": "Network+‎", "en": "Network+" },
+    "description": { "fa": "مبانی شبکه", "en": "Networking Fundamentals" },
+    "issuer": { "fa": "", "en": "" },
+    "date": "",
+    "image": "",
+    "credentialId": "",
+    "credentialUrl": ""
+  },
+  {
+    "id": "wordpress",
+    "title": { "fa": "وردپرس", "en": "WordPress" },
+    "description": { "fa": "مدیریت و توسعهٔ وب‌سایت", "en": "Website Management & Development" },
+    "issuer": { "fa": "", "en": "" },
+    "date": "",
+    "image": "",
+    "credentialId": "",
+    "credentialUrl": ""
+  }
+]

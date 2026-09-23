@@ -1,0 +1,44 @@
+[
+  {
+    "id": "vscode",
+    "category": "devtools",
+    "name": { "fa": "Visual Studio Code", "en": "Visual Studio Code" },
+    "description": { "fa": "ویرایشگر اصلی من برای Flutter، پایتون و وب.", "en": "My main editor for Flutter, Python and web work." },
+    "url": "https://code.visualstudio.com/"
+  },
+  {
+    "id": "flutter-sdk",
+    "category": "devtools",
+    "name": { "fa": "Flutter SDK", "en": "Flutter SDK" },
+    "description": { "fa": "یک کدبیس برای اندروید، iOS و وب.", "en": "One codebase for Android, iOS and the web." },
+    "url": "https://flutter.dev/"
+  },
+  {
+    "id": "git-github",
+    "category": "devtools",
+    "name": { "fa": "Git و GitHub", "en": "Git & GitHub" },
+    "description": { "fa": "کنترل نسخه برای همه چیز، حتی محتوای همین سایت.", "en": "Version control for everything, including this site's content." },
+    "url": "https://github.com/"
+  },
+  {
+    "id": "figma",
+    "category": "software",
+    "name": { "fa": "Figma", "en": "Figma" },
+    "description": { "fa": "طراحی رابط کاربری و نمونه‌سازی پیش از کدنویسی.", "en": "UI design and prototyping before I write any code." },
+    "url": "https://www.figma.com/"
+  },
+  {
+    "id": "firebase",
+    "category": "software",
+    "name": { "fa": "Firebase", "en": "Firebase" },
+    "description": { "fa": "احراز هویت، دیتابیس و اعلان‌ها برای پروژه‌های سریع.", "en": "Auth, database and notifications for fast-moving projects." },
+    "url": "https://firebase.google.com/"
+  },
+  {
+    "id": "linux",
+    "category": "software",
+    "name": { "fa": "لینوکس", "en": "Linux" },
+    "description": { "fa": "سیستم‌عامل روزمره‌ام برای توسعه.", "en": "My everyday development OS." },
+    "url": ""
+  }
+]

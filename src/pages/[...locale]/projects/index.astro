@@ -1,0 +1,125 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { getProjects } from '@/lib/content';
+import { breadcrumbSchema } from '@/lib/seo';
+import { projectTypes } from '@/content.config';
+import { langFromParam, localeStaticPaths, localize, useTranslations } from '@/i18n/utils';
+
+export const getStaticPaths = localeStaticPaths;
+
+const lang = langFromParam(Astro.params.locale);
+const t = useTranslations(lang);
+const projects = await getProjects();
+
+const types = projectTypes.filter((type) => projects.some((p) => p.data.type === type));
+// Technologies ordered by how many projects use them.
+const techCount = new Map<string, number>();
+projects.forEach((p) => p.data.tech.forEach((tech) => techCount.set(tech, (techCount.get(tech) ?? 0) + 1)));
+const techs = [...techCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([tech]) => tech);
+
+const chip =
+  'rounded-full border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-brand';
+---
+
+<BaseLayout
+  lang={lang}
+  title={t('projects.title')}
+  description={t('projects.description')}
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: t('projects.title'),
+      hasPart: projects.map((p) => ({ '@type': 'CreativeWork', name: p.data.title[lang], url: new URL(localize(lang, `/projects/${p.id}/`), Astro.site).href })),
+    },
+    breadcrumbSchema([{ name: t('nav.home'), path: localize(lang, '/') }, { name: t('projects.title'), path: localize(lang, '/projects/') }], Astro.site),
+  ]}
+>
+  <PageHeader title={t('projects.title')} description={t('projects.description')} />
+
+  <div class="container-page py-8">
+    {
+      projects.length > 1 && (
+        <div class="mb-10 space-y-3" role="group" aria-label={t('projects.filter')} data-filters>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="me-1 w-20 text-xs font-medium text-muted-foreground">{t('projects.byType')}</span>
+            <button type="button" class={chip} aria-pressed="true" data-filter="type" data-value="">
+              {t('projects.all')}
+            </button>
+            {types.map((type) => (
+              <button type="button" class={chip} aria-pressed="false" data-filter="type" data-value={type}>
+                {t(`type.${type}`)}
+              </button>
+            ))}
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="me-1 w-20 text-xs font-medium text-muted-foreground">{t('projects.byTech')}</span>
+            <button type="button" class={chip} aria-pressed="true" data-filter="tech" data-value="">
+              {t('projects.all')}
+            </button>
+            {techs.map((tech) => (
+              <button type="button" class={chip} aria-pressed="false" data-filter="tech" data-value={tech} dir="ltr">
+                {tech}
+              </button>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <p class="sr-only" aria-live="polite" data-status></p>
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((project, i) => (
+          <li data-item>
+            <ProjectCard project={project} lang={lang} headingLevel="h2" eager={i < 3} />
+          </li>
+        ))
+      }
+    </ul>
+    <p class="hidden py-16 text-center text-muted-foreground" data-empty>{t('projects.empty')}</p>
+  </div>
+</BaseLayout>
+
+<script>
+  // Client-side filtering by type and technology; state is mirrored in the URL (?type=&tech=).
+  const root = document.querySelector<HTMLElement>('[data-filters]');
+  const items = [...document.querySelectorAll<HTMLElement>('[data-item]')];
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const status = document.querySelector<HTMLElement>('[data-status]');
+  const state = { type: '', tech: '' };
+
+  function render() {
+    let visible = 0;
+    for (const item of items) {
+      const card = item.querySelector<HTMLElement>('[data-project]')!;
+      const tech: string[] = JSON.parse(card.dataset.tech ?? '[]');
+      const show = (!state.type || card.dataset.type === state.type) && (!state.tech || tech.includes(state.tech));
+      item.hidden = !show;
+      if (show) visible++;
+    }
+    empty?.classList.toggle('hidden', visible > 0);
+    if (status) status.textContent = `${visible}`;
+    root?.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(state[btn.dataset.filter as 'type' | 'tech'] === btn.dataset.value));
+    });
+    const params = new URLSearchParams();
+    if (state.type) params.set('type', state.type);
+    if (state.tech) params.set('tech', state.tech);
+    history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
+  }
+
+  root?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-filter]');
+    if (!btn) return;
+    state[btn.dataset.filter as 'type' | 'tech'] = btn.dataset.value ?? '';
+    render();
+  });
+
+  const params = new URLSearchParams(location.search);
+  state.type = params.get('type') ?? '';
+  state.tech = params.get('tech') ?? '';
+  if (state.type || state.tech) render();
+</script>

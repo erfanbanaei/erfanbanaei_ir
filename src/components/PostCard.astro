@@ -1,0 +1,59 @@
+---
+import type { Post } from '@/lib/content';
+import { formatDate, formatNumber, localize, useTranslations, type Lang } from '@/i18n/utils';
+import { asset } from '@/i18n/utils';
+
+interface Props {
+  post: Post;
+  lang: Lang;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, lang, headingLevel: H = 'h3' } = Astro.props;
+const t = useTranslations(lang);
+const { data } = post;
+---
+
+<article
+  class="group relative flex h-full flex-col overflow-hidden rounded-xl border bg-card shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+  data-post
+  data-tags={JSON.stringify(data.tags[lang])}
+>
+  {
+    data.cover && (
+      <div class="aspect-[16/9] overflow-hidden bg-muted">
+        <img
+          src={asset(data.cover)}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="1600"
+          height="900"
+          class="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+    )
+  }
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <p class="flex items-center gap-2 text-xs text-muted-foreground">
+      <time datetime={data.date}>{formatDate(lang, data.date)}</time>
+      <span aria-hidden="true">·</span>
+      <span>{formatNumber(lang, data.readingMinutes[lang])} {t('blog.readingTime')}</span>
+    </p>
+    <H class="text-lg leading-snug font-semibold">
+      <a href={localize(lang, `/blog/${post.id}/`)} class="after:absolute after:inset-0 after:content-[''] group-hover:text-brand">
+        {data.title[lang]}
+      </a>
+    </H>
+    <p class="line-clamp-3 text-sm text-muted-foreground">{data.description[lang]}</p>
+    {
+      data.tags[lang].length > 0 && (
+        <ul class="mt-auto flex flex-wrap gap-1.5 pt-2 text-xs text-muted-foreground">
+          {data.tags[lang].map((tag) => (
+            <li class="rounded-md bg-muted px-2 py-0.5">#{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</article>

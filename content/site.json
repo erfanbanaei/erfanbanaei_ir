@@ -1,0 +1,78 @@
+{
+  "name": {
+    "fa": "عرفان بنائی",
+    "en": "Erfan Banaei"
+  },
+  "role": {
+    "fa": "توسعه‌دهنده Flutter",
+    "en": "Flutter Developer"
+  },
+  "avatar": "",
+  "hero": {
+    "greeting": {
+      "fa": "سلام، من عرفان هستم 👋",
+      "en": "Hi, I'm Erfan 👋"
+    },
+    "headline": {
+      "fa": "اپلیکیشن‌هایی زیبا و سریع با Flutter می‌سازم.",
+      "en": "I build beautiful, fast apps with Flutter."
+    },
+    "intro": {
+      "fa": "اپلیکیشن‌های چندسکویی برای اندروید، iOS و وب؛ جایی که معماری تمیز به طراحی زیبا می‌رسد.",
+      "en": "Cross-platform apps for Android, iOS and the web, where clean architecture meets beautiful design."
+    }
+  },
+  "about": {
+    "short": {
+      "fa": "برنامه‌نویسی را از ۱۲ سالگی شروع کردم. با C++‎ و جاوا کلنجار رفتم، اما وقتی HTML و CSS را کشف کردم، عاشق کدنویسی شدم. امروز با Flutter اپلیکیشن‌های چندسکویی می‌سازم و طراحی زیبا را با عملکرد قوی ترکیب می‌کنم. و این تازه شروع ماجراست.",
+      "en": "I started coding at 12. I struggled with C++ and Java, but fell in love when I discovered HTML & CSS. Today, I build cross-platform apps with Flutter, combining beautiful design with strong performance. This is just the beginning."
+    },
+    "story": {
+      "fa": "سفر من در دنیای کدنویسی زودتر از بیشتر آدم‌ها شروع شد؛ دقیقاً در ۱۲ سالگی و کلاس هفتم (سال ۱۳۹۴). با اشتیاق سراغ C++‎ رفتم، اما پیچیدگی‌اش برایم زیادی بود. دست نکشیدم و بعد جاوا را امتحان کردم، ولی در ۱۳ سالگی آن هم برایم سنگین بود. راستش را بخواهید، آن روزها سختی کشیدم؛ اما همین چالش‌ها به من یاد دادند چطور سرسخت و پیگیر بمانم.\n\nبعد، در کلاس دهم (سال ۱۳۹۷)، با HTML و CSS آشنا شدم. دیدن نتیجهٔ فوری کدها در مرورگر بالاخره باعث شد برنامه‌نویسی برایم «جا بیفتد». پس از آن سراغ جاوااسکریپت رفتم و مدت کوتاهی وردپرس را هم امتحان کردم، اما آن مسیر هیجان‌زده‌ام نکرد.\n\nاولین عشق واقعی من در کدنویسی **پایتون** بود. چند سال با آن اپلیکیشن‌های ویندوزی ساختم و ربات‌های تلگرامی حرفه‌ای توسعه دادم. همان موقع بود که واقعاً حس کردم یک توسعه‌دهنده‌ام: کسی که می‌تواند با کد، مسائل واقعی را حل کند.\n\nامروز علاقهٔ اصلی من **Flutter** است. چند سال است که با آن اپلیکیشن‌های چندسکویی (اندروید، iOS و وب) می‌سازم؛ از وب‌سایت شخصی خودم گرفته تا «هشیار مالی». برای من، ترکیب طراحی زیبا و عملکرد قوی لذت‌بخش‌ترین بخش برنامه‌نویسی است.\n\nوقتی به گذشته نگاه می‌کنم، از آن روزهای سخت با C++‎ تا جایی که امروز هستم، می‌بینم که هر چالشی مرا شکل داده است. آن پسر ۱۲ ساله‌ای که حاضر نبود تسلیم شود، اگر امروز مرا می‌دید به خودش افتخار می‌کرد. و مهم‌تر از همه، این تازه شروع راه است. نمی‌دانم این سفر مرا به کجا می‌برد، اما واقعاً کنجکاوم که بفهمم.",
+      "en": "My journey into coding started earlier than most, exactly at age 12, in 7th grade (2015). I eagerly jumped into C++, but its complexity was too much for me. I didn't give up; I tried Java next, but even that felt overwhelming at age 13. To be honest, I struggled back then, but those same challenges taught me how to be persistent.\n\nThen, in 10th grade (2018), I discovered HTML & CSS. Seeing immediate visual feedback in the browser finally made coding \"click\" for me. After that, I explored JavaScript and briefly tried WordPress, but that path didn't excite me.\n\nMy first real love in coding was **Python**. For a few years, I built Windows applications and created professional Telegram bots with it. That's when I truly felt like a developer: someone who can solve real problems with code.\n\nToday, my real passion is **Flutter**. For the past few years, I've been building cross-platform apps (Android, iOS, Web) with it, from my own portfolio website to Heshiyar Mali. For me, the combination of beautiful design and strong performance is the most enjoyable part of programming.\n\nLooking back, from those tough days with C++ to where I am now, I see that every challenge has shaped me. That 12-year-old kid who refused to give up would be proud if he saw me today. And most importantly, this is just the beginning. I don't know where this journey will take me, but I'm genuinely curious to find out."
+    },
+    "philosophy": {
+      "fa": "به نظر من اپلیکیشن‌های خوب جایی ساخته می‌شوند که طراحی سنجیده و مهندسی محکم به هم می‌رسند. کدم را با معماری تمیز (Clean Architecture) ساختار می‌دهم تا رشدش آسان بماند، به جزئیاتی که حس روان بودن یک رابط کاربری را می‌سازند اهمیت می‌دهم، و هر مانعی را فرصتی برای یادگیری می‌بینم؛ همان پشتکاری که بعد از C++‎ در ۱۲ سالگی نگذاشت کنار بکشم.",
+      "en": "I believe great apps live where thoughtful design meets solid engineering. I structure code with Clean Architecture so it stays easy to grow, I care about the small details that make an interface feel smooth, and I treat every obstacle as something to learn from: the same persistence that kept me going after C++ at 12."
+    },
+    "interests": {
+      "fa": [
+        "توسعهٔ اپلیکیشن‌های چندسکویی",
+        "طراحی رابط و تجربهٔ کاربری",
+        "اتوماسیون و ربات‌های تلگرام",
+        "لینوکس و شبکه",
+        "به اشتراک گذاشتن آموخته‌ها در یوتیوب و آپارات"
+      ],
+      "en": [
+        "Cross-platform app development",
+        "UI and UX design",
+        "Automation and Telegram bots",
+        "Linux and networking",
+        "Sharing what I learn on YouTube and Aparat"
+      ]
+    }
+  },
+  "email": "mr.erfanbanaei@gmail.com",
+  "socials": [
+    { "id": "linkedin", "label": { "fa": "لینکدین", "en": "LinkedIn" }, "url": "https://www.linkedin.com/in/erfanbanaeii/" },
+    { "id": "github", "label": { "fa": "گیت‌هاب", "en": "GitHub" }, "url": "https://github.com/erfanbanaei" },
+    { "id": "x", "label": { "fa": "ایکس (توییتر)", "en": "X (Twitter)" }, "url": "https://twitter.com/erfan_banaei" },
+    { "id": "youtube", "label": { "fa": "یوتیوب", "en": "YouTube" }, "url": "https://youtube.com/@erfanbanaei" },
+    { "id": "instagram", "label": { "fa": "اینستاگرام", "en": "Instagram" }, "url": "https://www.instagram.com/erfanbanaei.ir" },
+    { "id": "telegram", "label": { "fa": "تلگرام", "en": "Telegram" }, "url": "https://t.me/erfanbanaei_ir" },
+    { "id": "aparat", "label": { "fa": "آپارات", "en": "Aparat" }, "url": "https://www.aparat.com/erfanbanaei" }
+  ],
+  "resume": {
+    "fa": "",
+    "en": ""
+  },
+  "integrations": {
+    "web3formsKey": "",
+    "giscus": {
+      "repo": "",
+      "repoId": "",
+      "category": "",
+      "categoryId": ""
+    }
+  }
+}

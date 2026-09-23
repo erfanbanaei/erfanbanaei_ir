@@ -1,0 +1,65 @@
+---
+import SocialIcon from '@/components/SocialIcon.astro';
+import { getSite } from '@/lib/content';
+import { formatNumber, localize, useTranslations, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const site = await getSite();
+const year = formatNumber(lang, new Date().getFullYear()).replace(/[٬,]/g, '');
+
+const links = [
+  { href: '/now/', label: t('nav.now') },
+  { href: '/uses/', label: t('nav.uses') },
+  { href: '/resume/', label: t('nav.resume') },
+  { href: '/rss.xml', label: t('blog.rss') },
+];
+---
+
+<footer class="no-print mt-24 border-t">
+  <div class="container-page flex flex-col gap-8 py-10 md:flex-row md:items-start md:justify-between">
+    <div class="max-w-sm space-y-2">
+      <p class="font-semibold">{site.name[lang]}</p>
+      <p class="text-sm text-muted-foreground">{site.role[lang]}</p>
+      <ul class="flex flex-wrap gap-1 pt-2">
+        {
+          site.socials.map((s) => (
+            <li>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="me noopener noreferrer"
+                aria-label={s.label[lang]}
+                title={s.label[lang]}
+                class="grid size-9 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              >
+                <SocialIcon id={s.id} class="size-[1.05rem]" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <nav aria-label={t('footer.more')}>
+      <ul class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm">
+        {
+          links.map((l) => (
+            <li>
+              <a href={localize(lang, l.href)} class="text-muted-foreground transition-colors hover:text-foreground">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="container-page flex flex-col gap-1 border-t py-6 text-xs text-muted-foreground sm:flex-row sm:justify-between">
+    <p>© {year} {site.name[lang]}. {t('footer.rights')}</p>
+    <p>{t('footer.built')}</p>
+  </div>
+</footer>

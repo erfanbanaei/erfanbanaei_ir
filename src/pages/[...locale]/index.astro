@@ -1,0 +1,192 @@
+---
+import { ArrowRight, Download, Mail } from 'lucide-react';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import SkillsGrid from '@/components/SkillsGrid.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import PostCard from '@/components/PostCard.astro';
+import SocialIcon from '@/components/SocialIcon.astro';
+import { buttonVariants } from '@/components/ui/button';
+import { getExperience, getPosts, getProjects, getSite, getTestimonials } from '@/lib/content';
+import { personSchema, resumeLink, websiteSchema } from '@/lib/seo';
+import { asset, langFromParam, localeStaticPaths, localize, useTranslations } from '@/i18n/utils';
+
+export const getStaticPaths = localeStaticPaths;
+
+const lang = langFromParam(Astro.params.locale);
+const t = useTranslations(lang);
+const site = await getSite();
+const projects = await getProjects();
+const featured = (projects.some((p) => p.data.featured) ? projects.filter((p) => p.data.featured) : projects).slice(0, 4);
+const posts = (await getPosts()).slice(0, 3);
+const testimonials = await getTestimonials();
+const current = (await getExperience()).find((e) => !e.data.end);
+const resume = resumeLink(site, lang);
+---
+
+<BaseLayout lang={lang} description={site.about.short[lang]} type="profile" jsonLd={[personSchema(site, lang, Astro.site), websiteSchema(site, lang, Astro.site)]}>
+  <!-- Hero -->
+  <section class="hero-glow relative overflow-hidden">
+    <div class="grid-pattern pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
+    <div class="container-page relative grid items-center gap-12 pt-20 pb-24 sm:pt-28 md:grid-cols-[1fr_auto]">
+      <div class="max-w-2xl">
+        {
+          current && (
+            <p class="mb-6 inline-flex items-center gap-2 rounded-full border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+              <span class="relative flex size-2">
+                <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60 motion-reduce:hidden" />
+                <span class="relative inline-flex size-2 rounded-full bg-primary" />
+              </span>
+              {current.data.role[lang]} · {current.data.company[lang]}
+            </p>
+          )
+        }
+        <p class="text-lg font-medium text-muted-foreground">{site.hero.greeting[lang]}</p>
+        <h1 class="mt-3 text-4xl leading-tight font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          {site.hero.headline[lang]}
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-pretty text-muted-foreground">{site.hero.intro[lang]}</p>
+        <div class="mt-10 flex flex-wrap gap-3">
+            <a class={buttonVariants({ size: 'lg' })} href={localize(lang, '/projects/')}>
+              {t('hero.viewProjects')}
+              <ArrowRight className="rtl:rotate-180" aria-hidden />
+            </a>
+            <a class={buttonVariants({ variant: 'outline', size: 'lg' })} href={resume.href} download={resume.download ? '' : undefined}>
+              <Download aria-hidden />
+              {t('hero.downloadResume')}
+            </a>
+        </div>
+      </div>
+      {
+        site.avatar && (
+          <div class="relative mx-auto hidden md:block">
+            <div class="absolute -inset-4 rounded-full bg-primary/20 blur-2xl" aria-hidden="true" />
+            <img
+              src={asset(site.avatar)}
+              alt={site.name[lang]}
+              width="288"
+              height="288"
+              fetchpriority="high"
+              class="relative size-72 rounded-full border-4 border-card object-cover shadow-xl"
+            />
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="container-page py-16" aria-labelledby="about-heading">
+    <div class="grid gap-8 rounded-2xl border bg-card p-8 shadow-xs md:grid-cols-[auto_1fr] md:p-10" data-reveal>
+      <h2 id="about-heading" class="eyebrow md:w-40">{t('home.about')}</h2>
+      <div>
+        <p class="text-lg leading-relaxed text-pretty sm:text-xl">{site.about.short[lang]}</p>
+        <a href={localize(lang, '/about/')} class="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+          {t('home.aboutMore')}
+          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" aria-hidden />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="container-page py-16" aria-labelledby="skills-heading">
+    <SectionHeading id="skills-heading" title={t('home.skills')} description={t('home.skillsIntro')} />
+    <SkillsGrid lang={lang} />
+  </section>
+
+  <!-- Featured projects -->
+  <section class="container-page py-16" aria-labelledby="projects-heading">
+    <SectionHeading id="projects-heading" title={t('home.featured')} href={localize(lang, '/projects/')} linkLabel={t('home.allProjects')} />
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        featured.map((project, i) => (
+          <div data-reveal style={`--reveal-delay:${(i % 2) * 80}ms`}>
+            <ProjectCard project={project} lang={lang} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Latest articles -->
+  {
+    posts.length > 0 && (
+      <section class="container-page py-16" aria-labelledby="posts-heading">
+        <SectionHeading id="posts-heading" title={t('home.latest')} href={localize(lang, '/blog/')} linkLabel={t('home.allPosts')} />
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, i) => (
+            <div data-reveal style={`--reveal-delay:${i * 80}ms`}>
+              <PostCard post={post} lang={lang} />
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Testimonials -->
+  {
+    testimonials.length > 0 && (
+      <section class="container-page py-16" aria-labelledby="testimonials-heading">
+        <SectionHeading id="testimonials-heading" title={t('home.testimonials')} />
+        <div class="grid gap-6 md:grid-cols-2">
+          {testimonials.map(({ data }) => (
+            <figure class="flex flex-col gap-5 rounded-xl border bg-card p-6 shadow-xs" data-reveal>
+              <blockquote class="text-pretty">“{data.quote[lang]}”</blockquote>
+              <figcaption class="mt-auto flex items-center gap-3">
+                {data.avatar && <img src={asset(data.avatar)} alt="" width="40" height="40" loading="lazy" class="size-10 rounded-full object-cover" />}
+                <div class="text-sm">
+                  {data.url ? (
+                    <a href={data.url} class="font-semibold hover:underline" target="_blank" rel="noopener noreferrer">
+                      {data.name[lang]}
+                    </a>
+                  ) : (
+                    <p class="font-semibold">{data.name[lang]}</p>
+                  )}
+                  {data.role[lang] && <p class="text-muted-foreground">{data.role[lang]}</p>}
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Contact -->
+  <section class="container-page py-16" aria-labelledby="contact-heading">
+    <div class="relative overflow-hidden rounded-2xl border bg-card p-8 text-center shadow-xs sm:p-12" data-reveal>
+      <div class="hero-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+      <div class="relative">
+        <h2 id="contact-heading" class="text-2xl font-bold tracking-tight sm:text-3xl">{t('home.contact')}</h2>
+        <p class="mx-auto mt-3 max-w-xl text-muted-foreground">{t('home.contactIntro')}</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a class={buttonVariants({ size: 'lg' })} href={localize(lang, '/contact/')}>{t('home.contactCta')}</a>
+            <a class={buttonVariants({ variant: 'outline', size: 'lg' })} href={`mailto:${site.email}`} dir="ltr">
+              <Mail aria-hidden />
+              {site.email}
+            </a>
+        </div>
+        <ul class="mt-8 flex flex-wrap justify-center gap-1">
+          {
+            site.socials.map((s) => (
+              <li>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  aria-label={s.label[lang]}
+                  title={s.label[lang]}
+                  class="grid size-10 place-items-center rounded-lg text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                >
+                  <SocialIcon id={s.id} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

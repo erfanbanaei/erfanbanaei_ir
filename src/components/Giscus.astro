@@ -1,0 +1,68 @@
+---
+import type { Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+  config: { repo: string; repoId: string; category: string; categoryId: string };
+  title: string;
+}
+
+const { lang, config, title } = Astro.props;
+---
+
+<section class="no-print mt-16 border-t pt-10" aria-labelledby="comments-heading">
+  <h2 id="comments-heading" class="mb-6 text-xl font-semibold">{title}</h2>
+  <div
+    data-giscus
+    data-repo={config.repo}
+    data-repo-id={config.repoId}
+    data-category={config.category}
+    data-category-id={config.categoryId}
+    data-lang={lang}
+  >
+  </div>
+</section>
+
+<script>
+  // Giscus (GitHub Discussions) loaded lazily; its theme follows the site theme.
+  const host = document.querySelector<HTMLElement>('[data-giscus]');
+  const theme = () => (document.documentElement.classList.contains('dark') ? 'dark_dimmed' : 'light');
+
+  if (host) {
+    const load = () => {
+      const s = document.createElement('script');
+      s.src = 'https://giscus.app/client.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      const attrs: Record<string, string> = {
+        'data-repo': host.dataset.repo!,
+        'data-repo-id': host.dataset.repoId!,
+        'data-category': host.dataset.category!,
+        'data-category-id': host.dataset.categoryId!,
+        'data-mapping': 'pathname',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'top',
+        'data-theme': theme(),
+        'data-lang': host.dataset.lang!,
+        'data-loading': 'lazy',
+      };
+      Object.entries(attrs).forEach(([k, v]) => s.setAttribute(k, v));
+      host.append(s);
+    };
+    new IntersectionObserver((entries, io) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        load();
+      }
+    }, { rootMargin: '400px' }).observe(host);
+
+    window.addEventListener('themechange', () => {
+      host.querySelector<HTMLIFrameElement>('iframe.giscus-frame')?.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: theme() } } },
+        'https://giscus.app',
+      );
+    });
+  }
+</script>

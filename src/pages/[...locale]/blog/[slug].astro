@@ -1,0 +1,141 @@
+---
+import { ArrowLeft } from 'lucide-react';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Giscus from '@/components/Giscus.astro';
+import PostCard from '@/components/PostCard.astro';
+import { getPosts, getSite } from '@/lib/content';
+import { breadcrumbSchema } from '@/lib/seo';
+import { asset, formatDate, formatNumber, langFromParam, localize, locales, useTranslations } from '@/i18n/utils';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return locales.flatMap((lang) =>
+    posts.map((post) => ({ params: { locale: lang === 'fa' ? undefined : lang, slug: post.id }, props: { post } })),
+  );
+}
+
+const { post } = Astro.props;
+const lang = langFromParam(Astro.params.locale);
+const t = useTranslations(lang);
+const site = await getSite();
+const { data } = post;
+const url = localize(lang, `/blog/${post.id}/`);
+const giscus = site.integrations.giscus;
+const hasComments = Boolean(giscus.repo && giscus.repoId && giscus.categoryId);
+
+// Related: most shared tags, then most recent.
+const related = (await getPosts())
+  .filter((p) => p.id !== post.id)
+  .map((p) => ({ p, score: p.data.tags.en.filter((tag) => data.tags.en.includes(tag)).length }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 2)
+  .map(({ p }) => p);
+---
+
+<BaseLayout
+  lang={lang}
+  title={data.title[lang]}
+  description={data.description[lang]}
+  image={data.cover || undefined}
+  type="article"
+  publishedTime={data.date}
+  modifiedTime={data.updated || undefined}
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: data.title[lang],
+      description: data.description[lang],
+      datePublished: data.date,
+      dateModified: data.updated || data.date,
+      inLanguage: lang,
+      keywords: data.tags[lang].join(', '),
+      mainEntityOfPage: new URL(url, Astro.site).href,
+      ...(data.cover ? { image: new URL(asset(data.cover), Astro.site).href } : {}),
+      author: { '@type': 'Person', name: site.name[lang], url: new URL(localize(lang, '/'), Astro.site).href },
+    },
+    breadcrumbSchema(
+      [
+        { name: t('nav.home'), path: localize(lang, '/') },
+        { name: t('blog.title'), path: localize(lang, '/blog/') },
+        { name: data.title[lang], path: url },
+      ],
+      Astro.site,
+    ),
+  ]}
+>
+  <article class="container-page max-w-3xl pt-10">
+    <a href={localize(lang, '/blog/')} class="group no-print mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+      <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-0.5 rtl:rotate-180 rtl:group-hover:translate-x-0.5" aria-hidden />
+      {t('blog.back')}
+    </a>
+
+    <header class="mb-10">
+      <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+        <time datetime={data.date}>{formatDate(lang, data.date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{formatNumber(lang, data.readingMinutes[lang])} {t('blog.readingTime')}</span>
+        {
+          data.updated && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>
+                {t('blog.updated')}: <time datetime={data.updated}>{formatDate(lang, data.updated)}</time>
+              </span>
+            </>
+          )
+        }
+      </p>
+      <h1 class="mt-3 text-3xl leading-tight font-bold tracking-tight text-balance sm:text-4xl">{data.title[lang]}</h1>
+      <p class="mt-4 text-lg text-pretty text-muted-foreground">{data.description[lang]}</p>
+      {
+        data.tags[lang].length > 0 && (
+          <ul class="mt-6 flex flex-wrap gap-2" aria-label={t('blog.tags')}>
+            {data.tags[lang].map((tag) => (
+              <li>
+                <a
+                  href={`${localize(lang, '/blog/')}?tag=${encodeURIComponent(tag)}`}
+                  class="rounded-full border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-brand"
+                >
+                  #{tag}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    {
+      data.cover && (
+        <img
+          src={asset(data.cover)}
+          alt=""
+          width="1600"
+          height="900"
+          fetchpriority="high"
+          class="mb-10 w-full rounded-2xl border object-cover"
+        />
+      )
+    }
+
+    <div class="prose-site sm:prose-lg" set:html={data.html[lang]} />
+
+    {hasComments && <Giscus lang={lang} config={giscus} title={t('blog.comments')} />}
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="container-page no-print mt-16 max-w-3xl border-t pt-10" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="mb-6 text-xl font-semibold">
+          {t('home.latest')}
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+          {related.map((p) => (
+            <PostCard post={p} lang={lang} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

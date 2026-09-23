@@ -1,0 +1,34 @@
+---
+import { Badge } from '@/components/ui/badge';
+
+interface Props {
+  items: string[];
+  limit?: number;
+  variant?: 'secondary' | 'outline' | 'brand';
+}
+
+const { items, limit, variant = 'secondary' } = Astro.props;
+const shown = limit ? items.slice(0, limit) : items;
+const rest = limit ? items.length - shown.length : 0;
+---
+
+<ul class="flex flex-wrap gap-1.5">
+  {
+    shown.map((item) => (
+      <li>
+        <Badge variant={variant} dir="ltr" className="font-normal">
+          {item}
+        </Badge>
+      </li>
+    ))
+  }
+  {
+    rest > 0 && (
+      <li>
+        <Badge variant="outline" dir="ltr" className="font-normal text-muted-foreground">
+          +{rest}
+        </Badge>
+      </li>
+    )
+  }
+</ul>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ExperienceTimeline from '@/components/ExperienceTimeline.astro';
+import CertificateGrid from '@/components/CertificateGrid.astro';
+import { getEducation, getSite } from '@/lib/content';
+import { breadcrumbSchema, personSchema } from '@/lib/seo';
+import { formatYear, langFromParam, localeStaticPaths, localize, useTranslations } from '@/i18n/utils';
+
+export const getStaticPaths = localeStaticPaths;
+
+const lang = langFromParam(Astro.params.locale);
+const t = useTranslations(lang);
+const site = await getSite();
+const education = await getEducation();
+const html = site.html;
+---
+
+<BaseLayout
+  lang={lang}
+  title={t('about.title')}
+  description={t('about.description')}
+  type="profile"
+  jsonLd={[
+    { '@context': 'https://schema.org', '@type': 'ProfilePage', mainEntity: personSchema(site, lang, Astro.site) },
+    breadcrumbSchema([{ name: t('nav.home'), path: localize(lang, '/') }, { name: t('about.title'), path: localize(lang, '/about/') }], Astro.site),
+  ]}
+>
+  <PageHeader title={t('about.title')} description={site.about.short[lang]} eyebrow={site.role[lang]} />
+
+  <div class="container-page grid gap-16 py-12 lg:grid-cols-[1fr_16rem]">
+    <div class="min-w-0 space-y-16">
+      <section aria-labelledby="story">
+        <h2 id="story" class="mb-6 text-2xl font-bold tracking-tight">{t('about.story')}</h2>
+        <div class="prose-site text-[1.05rem]" set:html={html['about.story']?.[lang]} />
+      </section>
+
+      {
+        html['about.philosophy']?.[lang] && (
+          <section aria-labelledby="philosophy" class="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8" data-reveal>
+            <h2 id="philosophy" class="eyebrow mb-3">
+              {t('about.philosophy')}
+            </h2>
+            <div class="prose-site text-lg" set:html={html['about.philosophy'][lang]} />
+          </section>
+        )
+      }
+
+      <section aria-labelledby="experience" id="experience-section">
+        <SectionHeading id="experience" title={t('about.experience')} />
+        <ExperienceTimeline lang={lang} />
+      </section>
+
+      <section aria-labelledby="education">
+        <SectionHeading id="education" title={t('about.education')} />
+        <ul class="space-y-3">
+          {
+            education.map(({ data }) => (
+              <li class="flex flex-wrap items-baseline justify-between gap-2 rounded-xl border bg-card p-5 shadow-xs" data-reveal>
+                <div>
+                  <h3 class="font-semibold">{data.title[lang]}</h3>
+                  {(data.institution[lang] || data.note[lang]) && (
+                    <p class="text-sm text-muted-foreground">{[data.institution[lang], data.note[lang]].filter(Boolean).join(' · ')}</p>
+                  )}
+                </div>
+                {(data.start || data.end) && (
+                  <p class="text-sm text-muted-foreground">
+                    {[formatYear(lang, data.start), formatYear(lang, data.end)].filter(Boolean).join(' – ')}
+                  </p>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section aria-labelledby="certificates">
+        <SectionHeading id="certificates" title={t('about.certificates')} />
+        <CertificateGrid lang={lang} />
+      </section>
+    </div>
+
+    {
+      site.about.interests[lang].length > 0 && (
+        <aside class="lg:sticky lg:top-24 lg:self-start" aria-labelledby="interests">
+          <h2 id="interests" class="mb-4 text-sm font-semibold text-muted-foreground">
+            {t('about.interests')}
+          </h2>
+          <ul class="space-y-2">
+            {site.about.interests[lang].map((item) => (
+              <li class="flex gap-2.5 text-sm">
+                <span class="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+  </div>
+</BaseLayout>

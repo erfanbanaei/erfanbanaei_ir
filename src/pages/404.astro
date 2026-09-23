@@ -1,0 +1,31 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buttonVariants } from '@/components/ui/button';
+import { localize, useTranslations } from '@/i18n/utils';
+
+// GitHub Pages serves this single file for every missing URL, so it shows both languages.
+const fa = useTranslations('fa');
+const en = useTranslations('en');
+---
+
+<BaseLayout lang="fa" title={fa('notFound.title')} description={fa('notFound.text')} noindex>
+  <section class="hero-glow">
+    <div class="container-page grid min-h-[60vh] place-items-center py-20 text-center">
+      <div>
+        <p class="text-7xl font-bold text-brand" dir="ltr">404</p>
+        <div class="mt-8 grid gap-10 sm:grid-cols-2 sm:gap-16">
+          <div>
+            <h1 class="text-2xl font-bold">{fa('notFound.title')}</h1>
+            <p class="mt-2 text-muted-foreground">{fa('notFound.text')}</p>
+            <a href={localize('fa', '/')} class:list={[buttonVariants(), 'mt-6']}>{fa('notFound.home')}</a>
+          </div>
+          <div lang="en" dir="ltr">
+            <h2 class="text-2xl font-bold">{en('notFound.title')}</h2>
+            <p class="mt-2 text-muted-foreground">{en('notFound.text')}</p>
+            <a href={localize('en', '/')} class:list={[buttonVariants({ variant: 'outline' }), 'mt-6']}>{en('notFound.home')}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

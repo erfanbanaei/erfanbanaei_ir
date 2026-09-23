@@ -1,0 +1,62 @@
+---
+import { getSkills } from '@/lib/content';
+import { formatPercent, useTranslations, type Lang } from '@/i18n/utils';
+import { skillCategories } from '@/content.config';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const skills = await getSkills();
+const groups = skillCategories
+  .map((category) => ({ category, items: skills.filter((s) => s.data.category === category) }))
+  .filter((g) => g.items.length > 0);
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {
+    groups.map((group, i) => (
+      <section class="rounded-xl border bg-card p-5 shadow-xs" data-reveal style={`--reveal-delay:${i * 60}ms`}>
+        <h3 class="mb-4 text-sm font-semibold text-muted-foreground">{t(`skill.${group.category}`)}</h3>
+        <ul class="space-y-3.5">
+          {group.items.map(({ data }) => (
+            <li>
+              <div class="mb-1.5 flex items-baseline justify-between gap-2 text-sm">
+                <span class="font-medium">{data.name[lang]}</span>
+                <span class="text-xs text-muted-foreground tabular-nums">{formatPercent(lang, data.level)}</span>
+              </div>
+              <div
+                class="h-1.5 overflow-hidden rounded-full bg-muted"
+                role="meter"
+                aria-label={data.name[lang]}
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow={data.level}
+                aria-valuetext={formatPercent(lang, data.level)}
+              >
+                <div class="skill-bar h-full rounded-full bg-gradient-to-r from-primary/70 to-primary rtl:bg-gradient-to-l" style={`--level:${data.level}%`} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .skill-bar {
+    width: var(--level);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(html.js) [data-reveal] .skill-bar {
+      width: 0;
+      transition: width 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
+    }
+    :global(html.js) [data-reveal]:global(.is-visible) .skill-bar {
+      width: var(--level);
+    }
+  }
+</style>

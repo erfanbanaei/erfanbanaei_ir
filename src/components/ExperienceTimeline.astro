@@ -1,0 +1,61 @@
+---
+import { getExperience } from '@/lib/content';
+import TechBadges from '@/components/TechBadges.astro';
+import { formatMonth, useTranslations, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+  compact?: boolean;
+}
+
+const { lang, compact = false } = Astro.props;
+const t = useTranslations(lang);
+const items = await getExperience();
+---
+
+<ol class="relative space-y-8 border-s border-border ps-6">
+  {
+    items.map(({ data }) => (
+      <li class="relative" data-reveal>
+        <span
+          class:list={[
+            'absolute -start-[1.95rem] top-1.5 size-3.5 rounded-full border-2 border-background',
+            data.end ? 'bg-muted-foreground/40' : 'bg-primary ring-4 ring-primary/20',
+          ]}
+          aria-hidden="true"
+        />
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 class="text-lg font-semibold">
+            {data.role[lang]}
+            <span class="text-muted-foreground"> · </span>
+            {data.url ? (
+              <a href={data.url} class="link" target="_blank" rel="noopener noreferrer">
+                {data.company[lang]}
+              </a>
+            ) : (
+              <span class="text-brand">{data.company[lang]}</span>
+            )}
+          </h3>
+          <p class="text-sm text-muted-foreground">
+            <time datetime={data.start}>{formatMonth(lang, data.start)}</time>
+            {' – '}
+            {data.end ? <time datetime={data.end}>{formatMonth(lang, data.end)}</time> : t('about.present')}
+          </p>
+        </div>
+        <p class="mt-0.5 text-sm text-muted-foreground">{t(`employment.${data.employment}`)}</p>
+        {data.highlights[lang].length > 0 && (
+          <ul class="mt-3 list-disc space-y-1 ps-5 text-[0.95rem] marker:text-brand">
+            {data.highlights[lang].map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
+        )}
+        {!compact && data.tech.length > 0 && (
+          <div class="mt-3">
+            <TechBadges items={data.tech} variant="outline" />
+          </div>
+        )}
+      </li>
+    ))
+  }
+</ol>

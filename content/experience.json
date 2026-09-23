@@ -1,0 +1,70 @@
+[
+  {
+    "id": "prase-holding",
+    "company": { "fa": "هلدینگ پراسه", "en": "Prase Holding" },
+    "role": { "fa": "توسعه‌دهنده Flutter", "en": "Flutter Developer" },
+    "employment": "full-time",
+    "start": "2024-10",
+    "end": "",
+    "url": "",
+    "highlights": {
+      "fa": [
+        "توسعه و نگهداری اپلیکیشن «هشیار مالی»",
+        "پیاده‌سازی معماری تمیز (Clean Architecture)",
+        "مدیریت state با GetX",
+        "توسعهٔ وب‌اپلیکیشن و تجربهٔ کار با PWA"
+      ],
+      "en": [
+        "Developed and maintained the Heshiyar Mali app",
+        "Implemented Clean Architecture",
+        "State management with GetX",
+        "Web app development and PWA experience"
+      ]
+    },
+    "tech": ["Flutter", "Dart", "GetX", "Clean Architecture", "PWA"]
+  },
+  {
+    "id": "freelance-flutter",
+    "company": { "fa": "فریلنسر", "en": "Freelance" },
+    "role": { "fa": "توسعه‌دهنده Flutter", "en": "Flutter Developer" },
+    "employment": "freelance",
+    "start": "2022-10",
+    "end": "2024-10",
+    "url": "",
+    "highlights": {
+      "fa": [
+        "طراحی و ساخت چندین اپلیکیشن موبایل و وب با Flutter",
+        "یکپارچه‌سازی REST API و Firebase",
+        "همکاری با استارتاپ‌ها و مشتریان خصوصی"
+      ],
+      "en": [
+        "Designed and built multiple mobile/web apps with Flutter",
+        "Integrated REST APIs and Firebase",
+        "Collaborated with startups and private clients"
+      ]
+    },
+    "tech": ["Flutter", "Dart", "Firebase", "REST API"]
+  },
+  {
+    "id": "freelance-python",
+    "company": { "fa": "فریلنسر", "en": "Freelance" },
+    "role": { "fa": "توسعه‌دهنده پایتون", "en": "Python Developer" },
+    "employment": "freelance",
+    "start": "2018-02",
+    "end": "2022-10",
+    "url": "",
+    "highlights": {
+      "fa": [
+        "ساخت اپلیکیشن‌های ویندوزی با پایتون",
+        "توسعهٔ ربات‌های پیشرفتهٔ تلگرام",
+        "اتوماسیون فرایندها و اسکریپت‌نویسی"
+      ],
+      "en": [
+        "Built Windows applications with Python",
+        "Developed advanced Telegram bots",
+        "Process automation and scripting"
+      ]
+    },
+    "tech": ["Python", "Telegram Bot API", "Automation"]
+  }
+]

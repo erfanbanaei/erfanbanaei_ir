@@ -1,0 +1,68 @@
+---
+import { Award, BadgeCheck, ExternalLink } from 'lucide-react';
+import { getCertificates } from '@/lib/content';
+import { asset, formatMonth, useTranslations, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const certificates = await getCertificates();
+---
+
+<ul class="grid gap-4 sm:grid-cols-2">
+  {
+    certificates.map(({ data }) => (
+      <li class="flex flex-col overflow-hidden rounded-xl border bg-card shadow-xs" data-reveal>
+        {data.image ? (
+          <a href={asset(data.image)} target="_blank" rel="noopener" class="group block aspect-[4/3] overflow-hidden border-b bg-muted" aria-label={`${t('about.viewCertificate')}: ${data.title[lang]}`}>
+            <img
+              src={asset(data.image)}
+              alt={`${data.title[lang]} ${data.description[lang]}`.trim()}
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="900"
+              class="size-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </a>
+        ) : null}
+        <div class="flex flex-1 gap-4 p-5">
+          <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-brand" aria-hidden="true">
+            <Award className="size-5" />
+          </span>
+          <div class="min-w-0 flex-1 space-y-1">
+            <h3 class="font-semibold">{data.title[lang]}</h3>
+            {data.description[lang] && <p class="text-sm text-muted-foreground">{data.description[lang]}</p>}
+            {(data.issuer[lang] || data.date) && (
+              <p class="text-xs text-muted-foreground">
+                {[data.issuer[lang], data.date && formatMonth(lang, data.date)].filter(Boolean).join(' · ')}
+              </p>
+            )}
+            {(data.credentialId || data.credentialUrl) && (
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 text-xs">
+                {data.credentialId && (
+                  <span class="inline-flex items-center gap-1 text-muted-foreground">
+                    <BadgeCheck className="size-3.5 text-brand" aria-hidden />
+                    {t('about.credential')}:
+                    <code dir="ltr" class="rounded bg-muted px-1.5 py-0.5 font-mono text-foreground select-all">
+                      {data.credentialId}
+                    </code>
+                  </span>
+                )}
+                {data.credentialUrl && (
+                  <a href={data.credentialUrl} target="_blank" rel="noopener noreferrer" class="link inline-flex items-center gap-1">
+                    {t('about.verify')}
+                    <ExternalLink className="size-3" aria-hidden />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ul>
