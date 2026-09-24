@@ -11,8 +11,8 @@ import { dir, isLang, locales } from '@/lib/i18n';
 import { siteUrl } from '@/lib/seo';
 import { getDictionary } from '@/i18n/dictionaries';
 
-// Persian glyphs come from Vazirmatn and Latin ones from Inter, in both languages.
-const vazirmatn = Vazirmatn({ subsets: ['arabic'], variable: '--font-vazirmatn', display: 'swap' });
+// Vazirmatn sets Persian text (with its matching Latin for mixed lines); Inter sets English. See globals.css.
+const vazirmatn = Vazirmatn({ subsets: ['arabic', 'latin'], variable: '--font-vazirmatn', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const dynamicParams = false;

@@ -35,7 +35,6 @@
   --grid: rgb(15 23 42 / 0.05);
   --shadow-color: 215 25% 27%;
   --radius: 0.875rem;
-  --font-sans: var(--font-inter), var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
   color-scheme: light;
 }
 
@@ -65,6 +64,33 @@
   --grid: rgb(255 255 255 / 0.035);
   --shadow-color: 220 40% 2%;
   color-scheme: dark;
+}
+
+/*
+ * Fonts by language. Persian text (the html element on Persian pages, and any lang="fa" block on
+ * English pages, like blog cards) is set entirely in Vazirmatn, including spaces, the zero-width
+ * non-joiner, punctuation and Latin words, so a line never switches fonts mid-word. English uses
+ * Inter, with Vazirmatn as the fallback for any Persian characters.
+ */
+html,
+[lang='en'] {
+  font-family: var(--font-inter), var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'cv11', 'ss01'; /* Inter: single-storey a, open digits */
+}
+
+[lang='fa'] {
+  font-family: var(--font-vazirmatn), Tahoma, 'Segoe UI', ui-sans-serif, sans-serif;
+  font-feature-settings: normal;
+}
+
+/* Persian dots and descenders need more room than the tight leading used for English headings. */
+:lang(fa):is(h1, h2) {
+  line-height: 1.4;
+}
+
+/* Letter-spacing splits the joined letters of Persian script, so tracking utilities don't apply. */
+:lang(fa):is(.tracking-tighter, .tracking-tight, .tracking-wide, .tracking-wider, .tracking-widest) {
+  letter-spacing: normal;
 }
 
 @theme inline {
@@ -105,14 +131,9 @@
     -webkit-tap-highlight-color: transparent;
     scroll-padding-top: 6rem;
   }
-  html:lang(fa) {
-    --font-sans: var(--font-vazirmatn), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
-    font-feature-settings: 'cv11', 'ss01';
   }
   :lang(fa) body {
     line-height: 1.8;
