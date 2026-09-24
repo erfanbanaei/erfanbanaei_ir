@@ -1,0 +1,261 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Palette. Both themes share the brand accent (#00B8D9) but are tuned
+ * separately rather than inverted. `--brand` is the accent for text: in light
+ * mode a deeper shade of the same hue so links keep WCAG AA contrast.
+ */
+:root {
+  --background: #f9fafb;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #00b8d9;
+  --primary-foreground: #04151c;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #5b6b80;
+  --accent: #eef3f8;
+  --accent-foreground: #1e293b;
+  --destructive: #dc2626;
+  --border: #e4e9f0;
+  --input: #dbe2ea;
+  --ring: #00b8d9;
+  --brand: #007186;
+  --brand-2: #3b82f6;
+  --glow: rgb(0 184 217 / 0.14);
+  --glow-2: rgb(59 130 246 / 0.1);
+  --grid: rgb(15 23 42 / 0.05);
+  --shadow-color: 215 25% 27%;
+  --radius: 0.875rem;
+  --font-sans: var(--font-inter), var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0d1117;
+  --foreground: #e6edf3;
+  --card: #121821;
+  --card-foreground: #e6edf3;
+  --popover: #151b24;
+  --popover-foreground: #e6edf3;
+  --primary: #00b8d9;
+  --primary-foreground: #04151c;
+  --secondary: #1a212b;
+  --secondary-foreground: #e6edf3;
+  --muted: #161c25;
+  --muted-foreground: #8d98a5;
+  --accent: #1a212b;
+  --accent-foreground: #e6edf3;
+  --destructive: #f87171;
+  --border: #232b36;
+  --input: #2d3643;
+  --ring: #00b8d9;
+  --brand: #2ccbe8;
+  --brand-2: #60a5fa;
+  --glow: rgb(0 184 217 / 0.18);
+  --glow-2: rgb(59 130 246 / 0.14);
+  --grid: rgb(255 255 255 / 0.035);
+  --shadow-color: 220 40% 2%;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --shadow-soft: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 8px 24px -12px hsl(var(--shadow-color) / 0.18);
+  --shadow-lift: 0 2px 4px hsl(var(--shadow-color) / 0.06), 0 24px 48px -24px hsl(var(--shadow-color) / 0.35);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 6rem;
+  }
+  html:lang(fa) {
+    --font-sans: var(--font-vazirmatn), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  :lang(fa) body {
+    line-height: 1.8;
+  }
+  ::selection {
+    background: rgb(0 184 217 / 0.25);
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-brand;
+  }
+  :lang(en) .eyebrow {
+    @apply tracking-wide uppercase;
+    font-size: 0.78rem;
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, var(--brand) 10%, var(--brand-2) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .surface {
+    @apply rounded-xl border bg-card text-card-foreground;
+    box-shadow: var(--shadow-soft);
+  }
+  .surface-hover {
+    @apply transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/35;
+  }
+  .surface-hover:hover {
+    box-shadow: var(--shadow-lift);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
+  }
+  .bg-aurora {
+    background:
+      radial-gradient(40rem 22rem at 20% -5%, var(--glow), transparent 70%),
+      radial-gradient(34rem 20rem at 85% 5%, var(--glow-2), transparent 70%);
+  }
+  .prose-site {
+    @apply prose max-w-none prose-slate dark:prose-invert;
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+    --tw-prose-links: var(--brand);
+    --tw-prose-bold: var(--foreground);
+    --tw-prose-bullets: var(--brand);
+    --tw-prose-counters: var(--muted-foreground);
+    --tw-prose-quotes: var(--foreground);
+    --tw-prose-quote-borders: var(--primary);
+    --tw-prose-code: var(--foreground);
+    --tw-prose-hr: var(--border);
+    --tw-prose-invert-body: var(--foreground);
+    --tw-prose-invert-headings: var(--foreground);
+    --tw-prose-invert-links: var(--brand);
+    --tw-prose-invert-bold: var(--foreground);
+    --tw-prose-invert-bullets: var(--brand);
+    --tw-prose-invert-quotes: var(--foreground);
+    --tw-prose-invert-quote-borders: var(--primary);
+    --tw-prose-invert-code: var(--foreground);
+    --tw-prose-invert-hr: var(--border);
+  }
+  :lang(fa) .prose-site {
+    line-height: 2.05;
+  }
+  :lang(fa) .prose-site ol {
+    list-style-type: persian;
+  }
+}
+
+/*
+ * Scroll reveal with CSS scroll-driven animations: no JavaScript, and content is never hidden
+ * where the feature (or motion) isn't available. Elements already on screen start fully visible.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+    [data-reveal] .skill-bar {
+      animation: grow-bar linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+  }
+  .animate-float {
+    animation: float 9s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--level);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+.skill-bar {
+  width: var(--level);
+}

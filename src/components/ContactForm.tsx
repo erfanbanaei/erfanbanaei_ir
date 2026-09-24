@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, type SubmitEvent } from 'react';
 import { CheckCircle2, Loader2, Send, TriangleAlert } from 'lucide-react';
 
@@ -6,26 +8,22 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-interface Props {
-  /** Public Web3Forms access key. Without it the form falls back to a mailto: link. */
-  accessKey: string;
+type Labels = {
+  name: string;
   email: string;
-  labels: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-    send: string;
-    sending: string;
-    success: string;
-    error: string;
-    mailtoNote: string;
-  };
-}
+  subject: string;
+  message: string;
+  send: string;
+  sending: string;
+  success: string;
+  error: string;
+  mailtoNote: string;
+};
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
-export default function ContactForm({ accessKey, email, labels }: Props) {
+/** Sends through Web3Forms when an access key is configured, otherwise opens a prefilled email. */
+export function ContactForm({ accessKey, email, labels }: { accessKey: string; email: string; labels: Labels }) {
   const [status, setStatus] = useState<Status>('idle');
 
   async function onSubmit(e: SubmitEvent<HTMLFormElement>) {
@@ -45,12 +43,7 @@ export default function ContactForm({ accessKey, email, labels }: Props) {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: accessKey,
-          from_name: data.name,
-          subject: data.subject || `Website message from ${data.name}`,
-          ...data,
-        }),
+        body: JSON.stringify({ access_key: accessKey, from_name: data.name, subject: data.subject || `Website message from ${data.name}`, ...data }),
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || !json.success) throw new Error(json.message);
@@ -62,7 +55,7 @@ export default function ContactForm({ accessKey, email, labels }: Props) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5" noValidate={false}>
+    <form onSubmit={onSubmit} className="grid gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="grid gap-2">
           <Label htmlFor="cf-name">{labels.name}</Label>

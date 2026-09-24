@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mobile-apps",
+    "icon": "mobile",
+    "title": {
+      "fa": "اپلیکیشن موبایل",
+      "en": "Mobile apps"
+    },
+    "description": {
+      "fa": "اپلیکیشن‌های چندسکویی برای اندروید و iOS با معماری تمیز و رابط کاربری روان.",
+      "en": "Cross-platform apps for Android and iOS with clean architecture and a smooth interface."
+    }
+  },
+  {
+    "id": "web",
+    "icon": "web",
+    "title": {
+      "fa": "وب‌اپلیکیشن و وب‌سایت",
+      "en": "Web apps & websites"
+    },
+    "description": {
+      "fa": "تجربه‌های وب سریع و واکنش‌گرا و PWA هایی که روی هر دستگاهی کار می‌کنند.",
+      "en": "Fast, responsive web experiences and PWAs that work on any device."
+    }
+  },
+  {
+    "id": "automation",
+    "icon": "automation",
+    "title": {
+      "fa": "ربات و اتوماسیون",
+      "en": "Bots & automation"
+    },
+    "description": {
+      "fa": "ربات‌های تلگرام و اسکریپت‌هایی که ساعت‌ها کار تکراری را حذف می‌کنند.",
+      "en": "Telegram bots and scripts that take hours of repetitive work off your plate."
+    }
+  },
+  {
+    "id": "design",
+    "icon": "design",
+    "title": {
+      "fa": "طراحی رابط کاربری",
+      "en": "UI/UX design"
+    },
+    "description": {
+      "fa": "رابط‌هایی که پیش از نوشتن اولین خط کد، در Figma طراحی و آزموده می‌شوند.",
+      "en": "Interfaces designed and tested in Figma before the first line of code."
+    }
+  }
+]

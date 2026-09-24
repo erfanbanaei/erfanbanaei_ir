@@ -1,5 +1,5 @@
 // Generates favicon / PWA icons / default Open Graph image into public/.
-// Run once (or after changing the brand): `node scripts/generate-assets.mjs`.
+// Run after changing the brand: `npm run assets`.
 import sharp from 'sharp';
 import { writeFile } from 'node:fs/promises';
 
@@ -51,8 +51,8 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
   <rect x="96" y="120" width="88" height="88" rx="20" fill="${ACCENT}" fill-opacity=".12" stroke="${ACCENT}" stroke-opacity=".4"/>
   <text x="140" y="178" text-anchor="middle" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-weight="800" font-size="38" fill="${ACCENT}">EB</text>
   <text x="96" y="330" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-weight="800" font-size="88" fill="#e6edf3" letter-spacing="-2">Erfan Banaei</text>
-  <text x="96" y="400" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-weight="500" font-size="40" fill="${ACCENT}">Flutter Developer</text>
+  <text x="96" y="400" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-weight="500" font-size="40" fill="${ACCENT}">Software Developer</text>
   <text x="96" y="530" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-size="28" fill="#8b949e">erfanbanaei.ir</text>
 </svg>`;
-await sharp(Buffer.from(og)).png({ compressionLevel: 9 }).toFile('public/og-default.png');
+await sharp(Buffer.from(og)).png({ compressionLevel: 9 }).toFile('public/og.png');
 console.log('assets generated');

@@ -1,0 +1,126 @@
+{
+  "fetchedAt": "2026-09-24T17:25:01.943Z",
+  "posts": [
+    {
+      "id": "network-ports-reference",
+      "title": "NetPorts | مرجع جامع پورت‌های شبکه و ابزارهای شبکه (فارسی)",
+      "url": "https://blog.erfanbanaei.ir/network-ports-reference/",
+      "date": "2026-07-10T11:12:40.000Z",
+      "excerpt": "اگر با شبکه سر و کار دارید — از توسعه‌دهندگی و DevOps گرفته تا امنیت و ادمین سیستم — بارها با این سؤال روبه‌رو شده‌اید که «این پورت مال کدام سرویس است؟»…",
+      "categories": [
+        "معرفی سایت",
+        "شبکه"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/network-ports-reference.webp",
+        "alt": "NetPorts | مرجع جامع پورت‌های شبکه و ابزارهای شبکه (فارسی)",
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "id": "jobradarir-telegram-job-bot",
+      "title": "ربات استخدام تلگرام JobRadarIR؛ دریافت لحظه‌ای آگهی‌های کار از ۴ سایت برتر ایران",
+      "url": "https://blog.erfanbanaei.ir/jobradarir-telegram-job-bot/",
+      "date": "2026-07-06T20:32:46.000Z",
+      "excerpt": "آیا خسته شده‌اید از اینکه هر روز جابینجا، جاب‌ویژن، ای‌استخدام و ایران‌تلنت را دستی چک کنید و باز هم حس کنید بهترین فرصت‌های شغلی را از دست می‌دهید؟ ربات استخدام تلگرام JobRadarIR…",
+      "categories": [
+        "معرفی ربات تلگرام",
+        "تلگرام"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/jobradarir-telegram-job-bot.webp",
+        "alt": "بنر معرفی jobradarir",
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "id": "syntax-symbols-programming",
+      "title": "نمادهای نگارشی در برنامه‌نویسی (Syntax Symbols)",
+      "url": "https://blog.erfanbanaei.ir/syntax-symbols-programming/",
+      "date": "2026-04-21T04:30:00.000Z",
+      "excerpt": "نمادهای نگارشی یکی از مهم‌ترین بخش‌های نحو (Syntax) در زبان‌های برنامه‌نویسی هستند. این نمادها ساختار کد، ترتیب اجرا، تعریف توابع و کلاس‌ها، گروه‌بندی داده‌ها، مقایسه، شرط، عملیات ریاضی و بسیاری رفتارهای دیگر…",
+      "categories": [
+        "مفاهیم برنامه نویسی"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/syntax-symbols-programming.webp",
+        "alt": "نماد های نگراشی در برنامه نویسی",
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "id": "generics-in-programming",
+      "title": "جنریک‌ها در برنامه‌نویسی: چرا مهم‌ هستند",
+      "url": "https://blog.erfanbanaei.ir/generics-in-programming/",
+      "date": "2026-04-18T11:06:15.000Z",
+      "excerpt": "در دنیای برنامه‌نویسی مدرن، یکی از مفاهیمی که تقریباً در تمام زبان‌های قدرتمند امروزی حضور دارد، Generics (جنریک‌ها) هستند. اگر پروژه‌ای بزرگ‌تر از یک اپلیکیشن ساده ساخته باشید، جنریک‌ها خیلی زود برایتان…",
+      "categories": [
+        "مفاهیم برنامه نویسی",
+        "فلاتر",
+        "کاتلین"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/generics-in-programming.webp",
+        "alt": "جنریک در برنامه نویسی",
+        "width": 768,
+        "height": 512
+      }
+    },
+    {
+      "id": "custom-search-engine-browser",
+      "title": "راهنمای سریع اضافه‌کردن موتورهای جستجوی بومی به مرورگر",
+      "url": "https://blog.erfanbanaei.ir/custom-search-engine-browser/",
+      "date": "2026-04-11T10:39:57.000Z",
+      "excerpt": "با توجه به محدودیت‌هایی که این روزها در دسترسی به اینترنت تجربه می‌کنیم، استفاده از موتورهای جستجوی بومی می‌تواند راه‌حل مناسب‌تری برای انجام جستجوهای روزمره باشد. اما واردکردن دستی دامنه هر بار…",
+      "categories": [
+        "راهنما و آموزش",
+        "مرورگر",
+        "نت ملی"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/custom-search-engine-browser.webp",
+        "alt": "راهنمای سریع اضافه‌کردن موتورهای جستجوی بومی به مرورگر",
+        "width": 768,
+        "height": 432
+      }
+    },
+    {
+      "id": "search-engines-irani",
+      "title": "معرفی موتور جستجو های بومی (مناسب نت ملی)",
+      "url": "https://blog.erfanbanaei.ir/search-engines-irani/",
+      "date": "2026-04-07T11:36:53.000Z",
+      "excerpt": "باتوجه به شرایطی حال حاضر قطع دسترسی به اینترنت آزاد برای جستجو کردن یه سری موتور های جستجو بومی وجود داره موتور جستجو های بومی با توجه به تجربه ای که در…",
+      "categories": [
+        "معرفی سایت",
+        "نت ملی"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/search-engines-irani.webp",
+        "alt": "تصویر تامنیل مقاله",
+        "width": 768,
+        "height": 432
+      }
+    },
+    {
+      "id": "hoshyar-mali-app",
+      "title": "معرفی اپلیکیشن هشیار مالی",
+      "url": "https://blog.erfanbanaei.ir/hoshyar-mali-app/",
+      "date": "2026-04-04T19:49:05.000Z",
+      "excerpt": "هشیار مالی یک اپلیکیشن کاربردی و جامع است که با ارائه قیمت‌های لحظه‌ای بازار، ابزارهای تخصصی محاسبات مالی و تحلیل‌های دقیق، به کاربران کمک می‌کند تصویر شفافی از وضعیت مالی خود داشته باشند.…",
+      "categories": [
+        "معرفی اپلیکیشن",
+        "امور مالی",
+        "هشیار مالی"
+      ],
+      "image": {
+        "src": "/images/blog-snapshot/hoshyar-mali-app.webp",
+        "alt": "لوگو هشیار مالی",
+        "width": 768,
+        "height": 432
+      }
+    }
+  ]
+}

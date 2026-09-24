@@ -4,8 +4,8 @@
     "en": "Erfan Banaei"
   },
   "role": {
-    "fa": "توسعه‌دهنده Flutter",
-    "en": "Flutter Developer"
+    "fa": "توسعه‌دهنده نرم‌افزار",
+    "en": "Software Developer"
   },
   "avatar": "",
   "hero": {
@@ -14,18 +14,18 @@
       "en": "Hi, I'm Erfan 👋"
     },
     "headline": {
-      "fa": "اپلیکیشن‌هایی زیبا و سریع با Flutter می‌سازم.",
-      "en": "I build beautiful, fast apps with Flutter."
+      "fa": "نرم‌افزارهای سنجیده می‌سازم؛ از ایده تا انتشار.",
+      "en": "Building thoughtful software, from idea to launch."
     },
     "intro": {
-      "fa": "اپلیکیشن‌های چندسکویی برای اندروید، iOS و وب؛ جایی که معماری تمیز به طراحی زیبا می‌رسد.",
-      "en": "Cross-platform apps for Android, iOS and the web, where clean architecture meets beautiful design."
+      "fa": "توسعه‌دهندهٔ نرم‌افزار هستم و اپلیکیشن‌های موبایل و وب، ربات‌های تلگرام و ابزارهای کاربردی می‌سازم. برایم کد تمیز، سرعت بالا و رابط کاربری دلنشین مهم است.",
+      "en": "I'm a software developer creating mobile and web apps, Telegram bots and handy tools. I care about clean code, fast performance and interfaces people genuinely enjoy."
     }
   },
   "about": {
     "short": {
-      "fa": "برنامه‌نویسی را از ۱۲ سالگی شروع کردم. با C++‎ و جاوا کلنجار رفتم، اما وقتی HTML و CSS را کشف کردم، عاشق کدنویسی شدم. امروز با Flutter اپلیکیشن‌های چندسکویی می‌سازم و طراحی زیبا را با عملکرد قوی ترکیب می‌کنم. و این تازه شروع ماجراست.",
-      "en": "I started coding at 12. I struggled with C++ and Java, but fell in love when I discovered HTML & CSS. Today, I build cross-platform apps with Flutter, combining beautiful design with strong performance. This is just the beginning."
+      "fa": "برنامه‌نویسی را از ۱۲ سالگی شروع کردم و از آن موقع دست از ساختن برنداشته‌ام. در این مسیر اپلیکیشن ویندوزی، ربات تلگرام، وب‌سایت و اپلیکیشن‌های چندسکویی موبایل ساخته‌ام. امروز تمرکزم تبدیل ایده‌ها به محصولاتی کامل و باکیفیت است و آموخته‌هایم را در وبلاگم می‌نویسم.",
+      "en": "I started coding at 12 and never stopped building. Along the way I've made Windows apps, Telegram bots, websites and cross-platform mobile apps. Today I focus on turning ideas into polished products, and I write about what I learn on my blog."
     },
     "story": {
       "fa": "سفر من در دنیای کدنویسی زودتر از بیشتر آدم‌ها شروع شد؛ دقیقاً در ۱۲ سالگی و کلاس هفتم (سال ۱۳۹۴). با اشتیاق سراغ C++‎ رفتم، اما پیچیدگی‌اش برایم زیادی بود. دست نکشیدم و بعد جاوا را امتحان کردم، ولی در ۱۳ سالگی آن هم برایم سنگین بود. راستش را بخواهید، آن روزها سختی کشیدم؛ اما همین چالش‌ها به من یاد دادند چطور سرسخت و پیگیر بمانم.\n\nبعد، در کلاس دهم (سال ۱۳۹۷)، با HTML و CSS آشنا شدم. دیدن نتیجهٔ فوری کدها در مرورگر بالاخره باعث شد برنامه‌نویسی برایم «جا بیفتد». پس از آن سراغ جاوااسکریپت رفتم و مدت کوتاهی وردپرس را هم امتحان کردم، اما آن مسیر هیجان‌زده‌ام نکرد.\n\nاولین عشق واقعی من در کدنویسی **پایتون** بود. چند سال با آن اپلیکیشن‌های ویندوزی ساختم و ربات‌های تلگرامی حرفه‌ای توسعه دادم. همان موقع بود که واقعاً حس کردم یک توسعه‌دهنده‌ام: کسی که می‌تواند با کد، مسائل واقعی را حل کند.\n\nامروز علاقهٔ اصلی من **Flutter** است. چند سال است که با آن اپلیکیشن‌های چندسکویی (اندروید، iOS و وب) می‌سازم؛ از وب‌سایت شخصی خودم گرفته تا «هشیار مالی». برای من، ترکیب طراحی زیبا و عملکرد قوی لذت‌بخش‌ترین بخش برنامه‌نویسی است.\n\nوقتی به گذشته نگاه می‌کنم، از آن روزهای سخت با C++‎ تا جایی که امروز هستم، می‌بینم که هر چالشی مرا شکل داده است. آن پسر ۱۲ ساله‌ای که حاضر نبود تسلیم شود، اگر امروز مرا می‌دید به خودش افتخار می‌کرد. و مهم‌تر از همه، این تازه شروع راه است. نمی‌دانم این سفر مرا به کجا می‌برد، اما واقعاً کنجکاوم که بفهمم.",
@@ -115,13 +115,11 @@
     "fa": "",
     "en": "/files/resume-en.pdf"
   },
+  "blog": {
+    "url": "https://blog.erfanbanaei.ir",
+    "feedUrl": "https://blog.erfanbanaei.ir/feed/"
+  },
   "integrations": {
-    "web3formsKey": "",
-    "giscus": {
-      "repo": "",
-      "repoId": "",
-      "category": "",
-      "categoryId": ""
-    }
+    "web3formsKey": ""
   }
 }
