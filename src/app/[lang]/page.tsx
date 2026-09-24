@@ -31,7 +31,7 @@ import { getDictionary } from '@/i18n/dictionaries';
 // Latest blog posts are refreshed from the feed at most once an hour.
 export const revalidate = 3600;
 
-const CODING_SINCE = 2015;
+const CODING_SINCE = 2019;
 
 export async function generateMetadata({ params }: PageProps<'/[lang]'>): Promise<Metadata> {
   const { lang } = await params;
