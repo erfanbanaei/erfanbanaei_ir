@@ -1,8 +1,14 @@
 [
   {
     "id": "prase-holding",
-    "company": { "fa": "هلدینگ پراسه", "en": "Prase Holding" },
-    "role": { "fa": "توسعه‌دهنده Flutter", "en": "Flutter Developer" },
+    "company": {
+      "fa": "هلدینگ پارسه",
+      "en": "Prase Holding"
+    },
+    "role": {
+      "fa": "توسعه‌دهنده Flutter",
+      "en": "Flutter Developer"
+    },
     "employment": "full-time",
     "start": "2024-10",
     "end": "",
@@ -21,12 +27,24 @@
         "Web app development and PWA experience"
       ]
     },
-    "tech": ["Flutter", "Dart", "GetX", "Clean Architecture", "PWA"]
+    "tech": [
+      "Flutter",
+      "Dart",
+      "GetX",
+      "Clean Architecture",
+      "PWA"
+    ]
   },
   {
     "id": "freelance-flutter",
-    "company": { "fa": "فریلنسر", "en": "Freelance" },
-    "role": { "fa": "توسعه‌دهنده Flutter", "en": "Flutter Developer" },
+    "company": {
+      "fa": "فریلنسر",
+      "en": "Freelance"
+    },
+    "role": {
+      "fa": "توسعه‌دهنده Flutter",
+      "en": "Flutter Developer"
+    },
     "employment": "freelance",
     "start": "2022-10",
     "end": "2024-10",
@@ -43,12 +61,23 @@
         "Collaborated with startups and private clients"
       ]
     },
-    "tech": ["Flutter", "Dart", "Firebase", "REST API"]
+    "tech": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "REST API"
+    ]
   },
   {
     "id": "freelance-python",
-    "company": { "fa": "فریلنسر", "en": "Freelance" },
-    "role": { "fa": "توسعه‌دهنده پایتون", "en": "Python Developer" },
+    "company": {
+      "fa": "فریلنسر",
+      "en": "Freelance"
+    },
+    "role": {
+      "fa": "توسعه‌دهنده پایتون",
+      "en": "Python Developer"
+    },
     "employment": "freelance",
     "start": "2018-02",
     "end": "2022-10",
@@ -65,6 +94,10 @@
         "Process automation and scripting"
       ]
     },
-    "tech": ["Python", "Telegram Bot API", "Automation"]
+    "tech": [
+      "Python",
+      "Telegram Bot API",
+      "Automation"
+    ]
   }
 ]
