@@ -60,7 +60,8 @@ export default async function LangLayout({ children, params }: LayoutProps<'/[la
 
   return (
     <html lang={lang} dir={dir(lang)} className={`${vazirmatn.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body className="flex min-h-dvh flex-col">
+      {/* Browser extensions often add attributes to <body>; don't report those as hydration errors. */}
+      <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <ThemeProvider>
           <a
             href="#main"

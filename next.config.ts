@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   // The bot's local deploy builds into a separate folder, then swaps it in (see ../run-local.sh).
   distDir: process.env.NEXT_DIST_DIR || '.next',
   poweredByHeader: false,
+  // Extra hostnames allowed to use the dev server, e.g. this machine's public IP when developing
+  // remotely: ALLOWED_DEV_ORIGINS=5.175.171.102 in .env.development.local (comma-separated).
+  allowedDevOrigins: (process.env.ALLOWED_DEV_ORIGINS ?? '')
+    .split(',')
+    .map((host) => host.trim())
+    .filter(Boolean),
   // Tailwind's CSS is small; inlining it removes a render-blocking request (better FCP/LCP).
   experimental: { inlineCss: true },
   images: {
